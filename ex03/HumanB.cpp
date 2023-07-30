@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/28 20:21:32 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/29 17:28:17 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/07/30 01:58:50 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,17 @@
 
 void HumanB::attack()
 {
-	
+	std::cout << this->name << " attacks with their ";
+	std::cout << this->type << std::endl;
 }
-HumanB::HumanB(/* args */)
+void HumanB::setWeapon(Weapon club)
 {
+	this->type = club.getType();
+}
+
+HumanB::HumanB(std::string name) : name(name)
+{
+
 }
 
 HumanB::~HumanB()
