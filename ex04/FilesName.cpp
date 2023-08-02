@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/02 02:59:35 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/08/02 21:11:33 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,11 @@
 // }
 FilesName::FilesName()
 {
-	this->id_of_string = new int(4);
+	std::cout << "default" << std::endl;
+	this->id_of_string = new int[3];
+	this->id_of_string[0] = 0;
+	this->id_of_string[1] = 0;
+	this->id_of_string[2] = 0;
 }
 
 FilesName::~FilesName()
@@ -52,13 +56,14 @@ void FilesName::ft_reaplace(std::string &file, std::string s1, std::string s2)
 
 	i = 0;
 	cont = 0;
-	while (i < file.length())
+	while (i < s1.length())
 	{
-		if (file.find(0,1,s1[i]))
-			cont++;
+		std::cout << s1[i] << std::endl;
+		// if (file.find(0,1,s1[i]))
+		// 	cont++;
 		i++;
 	}
-	std::cout << "cont "<< s2 << std::endl;
+	std::cout << "cont "<< cont << std::endl;
 }
 
 void FilesName::check_errors()
@@ -66,6 +71,7 @@ void FilesName::check_errors()
 	int i;
 	i = 1;
 	std::ifstream infile(this->name_file);
+
 	if (!this->name_file.length() || !this->s1.length() || !this->s2.length())
 	{
 		std::cerr << "arg is emty" << std::endl;

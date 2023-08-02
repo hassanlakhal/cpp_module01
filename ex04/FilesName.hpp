@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:49 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/02 02:54:13 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/08/02 20:57:49 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include<iostream>
 #include<fstream>
 #include <string>
+#include <cstring>
+#include <sys/stat.h>
 class FilesName
 {
 private:
@@ -30,5 +32,6 @@ public:
 	void add_info(std::string &arg, int index);
 	void check_errors();
 };
+bool chech_type(const char *path);
 #endif
 
