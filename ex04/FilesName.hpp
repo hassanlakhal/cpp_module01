@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   FilesName.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:21:32 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/30 22:29:40 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/07/31 23:37:49 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/08/02 02:54:13 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanB.hpp"
+#ifndef FILE_HPP
+#define FILE_HPP
 
-void HumanB::attack()
+#include<iostream>
+#include<fstream>
+#include <string>
+class FilesName
 {
-	if (this->weapon)
-		std::cout << this->name << " attacks with their " << this->weapon->getType() << "\n";
-	else
-		std::cout << this->name << " ma3aaaaandoch slah "	<< std::endl;
-}
+private:
+	std::string name_file;
+	std::string s1;
+	std::string s2;
+	int *id_of_string;
+	void ft_reaplace(std::string &file, std::string s1, std::string s2);
+public:
+	FilesName();
+	~FilesName();
+	void add_info(std::string &arg, int index);
+	void check_errors();
+};
+#endif
 
-void HumanB::setWeapon(Weapon &club)
-{
-	this->weapon = &club;
-}
-
-HumanB::HumanB(std::string name) : name(name)
-{
-	this->weapon = NULL;
-}
-
-HumanB::~HumanB()
-{
-}

@@ -1,35 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/28 20:21:32 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/30 22:29:40 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/08/01 16:00:59 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/08/02 02:50:45 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"HumanB.hpp"
+#include"FilesName.hpp"
 
-void HumanB::attack()
+int main(int argc, char **argv)
 {
-	if (this->weapon)
-		std::cout << this->name << " attacks with their " << this->weapon->getType() << "\n";
+	int i;
+	i = 1;
+	FilesName small_file;
+	if(argc == 4)
+	{
+		while(i < 4)
+		{
+			std::string inputFileName(argv[i]);
+			small_file.add_info(inputFileName,i);
+			i++;
+		}
+		small_file.check_errors();
+	}
 	else
-		std::cout << this->name << " ma3aaaaandoch slah "	<< std::endl;
-}
-
-void HumanB::setWeapon(Weapon &club)
-{
-	this->weapon = &club;
-}
-
-HumanB::HumanB(std::string name) : name(name)
-{
-	this->weapon = NULL;
-}
-
-HumanB::~HumanB()
-{
+		std::cout << "You have error in form args !!" << std::endl;
 }
