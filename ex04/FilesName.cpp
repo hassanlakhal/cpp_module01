@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/02 21:11:33 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:33:42 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,21 @@ void FilesName::add_info(std::string &arg, int index)
 }
 
 
-void FilesName::ft_reaplace(std::string &file, std::string s1, std::string s2)
+std::string FilesName::ft_reaplace(std::string &file, std::string &s1, std::string &s2)
 {
-	int i;
-	int cont;
 
-	i = 0;
-	cont = 0;
-	while (i < s1.length())
+	size_t postion = 0;
+	size_t old_postion = 0;
+	std::string new_string;
+	while ((postion = file.find(s1,postion)) != std::string::npos)
 	{
-		std::cout << s1[i] << std::endl;
-		// if (file.find(0,1,s1[i]))
-		// 	cont++;
-		i++;
+		new_string += file.substr(old_postion,postion - old_postion);
+		new_string.append(s2);
+		old_postion = postion;
+		file.erase(postion,s1.length());
 	}
-	std::cout << "cont "<< cont << std::endl;
+	new_string += file.substr(old_postion);
+	return new_string;
 }
 
 void FilesName::check_errors()
@@ -91,7 +91,7 @@ void FilesName::check_errors()
 			file.append("\n");
 	}
 	std::ofstream osf(name_file + ".replace");
-	ft_reaplace(file,this->s1,this->s2);
+	file = ft_reaplace(file,this->s1,this->s2);
 	osf << file;
 	osf.close();
 }

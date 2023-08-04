@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:49 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/02 20:57:49 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:27:40 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #include <string>
 #include <cstring>
 #include <sys/stat.h>
+#include<unistd.h>
 class FilesName
 {
 private:
@@ -25,7 +26,7 @@ private:
 	std::string s1;
 	std::string s2;
 	int *id_of_string;
-	void ft_reaplace(std::string &file, std::string s1, std::string s2);
+	std::string  ft_reaplace(std::string &file, std::string &s1, std::string &s2);
 public:
 	FilesName();
 	~FilesName();
