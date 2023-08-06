@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/04 19:33:42 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/08/04 19:42:45 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 // }
 FilesName::FilesName()
 {
-	std::cout << "default" << std::endl;
 	this->id_of_string = new int[3];
 	this->id_of_string[0] = 0;
 	this->id_of_string[1] = 0;
@@ -49,7 +48,7 @@ void FilesName::add_info(std::string &arg, int index)
 }
 
 
-std::string FilesName::ft_reaplace(std::string &file, std::string &s1, std::string &s2)
+std::string FilesName::ft_reaplace(std::string file, std::string s1, std::string s2)
 {
 
 	size_t postion = 0;
