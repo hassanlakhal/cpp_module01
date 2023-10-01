@@ -5,20 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/20 16:56:33 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/09/29 09:37:52 by hlakhal-         ###   ########.fr       */
+/*   Created: 2023/09/30 22:52:41 by hlakhal-          #+#    #+#             */
+/*   Updated: 2023/10/01 00:26:06 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include"Zombie.hpp"
+#include"Harl.hpp"
 
-int main()
+int main(int arc, char *arv[])
 {
-	Zombie *A = newZombie("Foddeddddo");
-	Zombie *B = newZombie("Hassan");
-	A->announce();
-	B->announce();
-	randomChump("Test");
-	delete A;
-	delete B;
+    if (arc == 2)
+        Harl::ft_harf(arv[1]);
+    else
+        std::cerr << "Error of args" << std::endl; 
 }
