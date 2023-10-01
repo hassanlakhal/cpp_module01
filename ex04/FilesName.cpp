@@ -6,16 +6,12 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/04 19:42:45 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/01 21:41:12 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include"FilesName.hpp"
 
-// void parssing_file()
-// {
-
-// }
 FilesName::FilesName()
 {
 	this->id_of_string = new int[3];
@@ -67,9 +63,7 @@ std::string FilesName::ft_reaplace(std::string file, std::string s1, std::string
 
 void FilesName::check_errors()
 {
-	int i;
-	i = 1;
-	std::ifstream infile(this->name_file);
+	std::ifstream infile(this->name_file.c_str());
 
 	if (!this->name_file.length() || !this->s1.length() || !this->s2.length())
 	{
@@ -89,7 +83,7 @@ void FilesName::check_errors()
 		if(line.find(0,line.length(),'\n'))
 			file.append("\n");
 	}
-	std::ofstream osf(name_file + ".replace");
+	std::ofstream osf((this->name_file + ".replace").c_str());
 	file = ft_reaplace(file,this->s1,this->s2);
 	osf << file;
 	osf.close();

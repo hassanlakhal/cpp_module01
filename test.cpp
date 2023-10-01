@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/19 21:50:36 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/07/20 20:16:21 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/01 16:43:54 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,24 +84,31 @@ private:
 };
 
 int main() {
-    int N = 5; // Number of objects to allocate
+    // int N = 5; // Number of objects to allocate
 
-    // Step 1: Allocate an array of N MyClass objects using the array form of new
-    MyClass* myObjects = new MyClass[N];
+    // // Step 1: Allocate an array of N MyClass objects using the array form of new
+    // MyClass* myObjects = new MyClass[N];
 
-    // Step 2: Optionally, initialize each object using constructor arguments
-    for (int i = 0; i < N; ++i) {
-        myObjects[i] = MyClass(i * 10); // Example: setting data to i * 10
-    }
+    // // Step 2: Optionally, initialize each object using constructor arguments
+    // for (int i = 0; i < N; ++i) {
+    //     myObjects[i] = MyClass(i * 10); // Example: setting data to i * 10
+    // }
 
-    // Use the allocated array of MyClass objects
-    for (int i = 0; i < N; ++i) {
-        myObjects[i].display();
-    }
+    // // Use the allocated array of MyClass objects
+    // for (int i = 0; i < N; ++i) {
+    //     myObjects[i].display();
+    // }
 
-    // Step 3: Don't forget to delete the allocated array when you're done
-    delete[] myObjects;
-
+    // // Step 3: Don't forget to delete the allocated array when you're done
+    // delete[] myObjects;
+    int q = 8;
+    int k = 10;
+    int *p = NULL;
+    int& test1 = *p;
+    test1 = 1;
+    // int &test = q;
+    // int &test = k;
+    std::cout << test1 << std::endl;
     return 0;
 }
 

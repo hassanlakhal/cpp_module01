@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:49 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/04 19:41:45 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/01 21:37:46 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include<fstream>
 #include <string>
 #include <cstring>
+#include<cstdlib>
 #include <sys/stat.h>
 #include<unistd.h>
 class FilesName

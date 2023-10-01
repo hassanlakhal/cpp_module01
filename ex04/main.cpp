@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 16:00:59 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/08/02 21:12:45 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/01 21:30:17 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(int argc, char **argv)
 	i = 1;
 	FilesName small_file;
 	const char *dir;
-	struct stat ab;
+	//struct stat ab;
 	if(argc == 4)
 	{
 		dir = argv[1];
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 		if(!chech_type(dir))
 		{
 			std::cerr << argv[1] << " is not file " << std::endl;
-			exit(0);
+			return 1;
 		}
 		small_file.check_errors();
 	}
