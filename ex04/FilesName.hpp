@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:49 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/01 22:29:49 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/03 20:04:35 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 	std::string name_file;
 	std::string s1;
 	std::string s2;
-	int *id_of_string;
+	int id_of_string;
 	std::string  ft_reaplace(std::string file, std::string s1, std::string s2);
 public:
 	FilesName();

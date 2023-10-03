@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/03 04:25:25 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/03 20:11:33 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,32 +14,26 @@
 
 FilesName::FilesName()
 {
-	this->id_of_string = new int[3];
-	this->id_of_string[0] = 0;
-	this->id_of_string[1] = 0;
-	this->id_of_string[2] = 0;
+	this->id_of_string = 0;
 }
 
 FilesName::~FilesName()
 {
-	delete[] this->id_of_string;
 }
 void FilesName::add_info(std::string &arg, int index)
 {
 	if (index == 1)
 	{
 		this->name_file = arg;
-		this->id_of_string[0] = 1;
+		this->id_of_string = 1;
 	}
 	else if(index == 2)
 	{
 		this->s1 = arg;
-		this->id_of_string[1] = 2;
 	}
 	else if(index == 3)
 	{
 		this->s2 = arg;
-		this->id_of_string[2] = 3;
 	}
 }
 
@@ -50,6 +44,8 @@ std::string FilesName::ft_reaplace(std::string file, std::string s1, std::string
 	size_t postion = 0;
 	size_t old_postion = 0;
 	std::string new_string;
+	if (!this->s1.length())
+		return file;
 	while ((postion = file.find(s1,postion)) != std::string::npos)
 	{
 		new_string += file.substr(old_postion,postion - old_postion);
@@ -65,12 +61,12 @@ void FilesName::check_errors()
 {
 	std::fstream infile;
 	infile.open((this->name_file.c_str()),std::ios::out | std::ios::in);
-	if (!this->name_file.length() || !this->s1.length() || !this->s2.length())
+	if (!this->name_file.length())
 	{
 		std::cerr << "arg is emty" << std::endl;
 		exit(1);
 	}
-	if(!infile.is_open() && this->id_of_string[0] == 1)
+	if(!infile.is_open() && this->id_of_string == 1)
 	{
 		std::cerr << "Failed error in name of file" << std::endl;
 		exit(1);
