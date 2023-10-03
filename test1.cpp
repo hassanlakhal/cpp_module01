@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/01 20:19:23 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/01 20:19:25 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/01 22:11:39 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ int main()
 	Student 	bob = Student("bfubar");
 	Student const jim = Student("jfubar");
 
-	// use a const function on a non-const variable is not a problem
 	std::cout << bob.getLoginRefConst() << " " << jim.getLoginRefConst() << std::endl;
 	std::cout << *(bob.getLoginPtrConst()) << " " << *(jim.getLoginPtrConst()) << std::endl;
 
