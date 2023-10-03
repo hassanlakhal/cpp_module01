@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/03 01:13:36 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/03 04:25:25 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,8 @@ std::string FilesName::ft_reaplace(std::string file, std::string s1, std::string
 
 void FilesName::check_errors()
 {
-	struct stat result;
-	std::ifstream infile(this->name_file.c_str());
-	stat(this->name_file.c_str(),&result);
+	std::fstream infile;
+	infile.open((this->name_file.c_str()),std::ios::out | std::ios::in);
 	if (!this->name_file.length() || !this->s1.length() || !this->s2.length())
 	{
 		std::cerr << "arg is emty" << std::endl;
@@ -75,16 +74,6 @@ void FilesName::check_errors()
 	{
 		std::cerr << "Failed error in name of file" << std::endl;
 		exit(1);
-	}
-	if ((result.st_mode & S_IWUSR) == 0)
-	{
-		std::cout << "Write permission " << std::endl;
-		exit(0);
-	}
-	if((result.st_mode & S_IXUSR))
-	{
-		std::cout << "This exected file" << std::endl;
-		exit(0);
 	}
 	std::string line;
 	std::string file;
