@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/03 20:11:33 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/06 08:09:42 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,26 +40,31 @@ void FilesName::add_info(std::string &arg, int index)
 
 std::string FilesName::ft_reaplace(std::string file, std::string s1, std::string s2)
 {
+    if (s1.empty())
+        return file;
+    std::string new_string;
+    size_t position = 0;
 
-	size_t postion = 0;
-	size_t old_postion = 0;
-	std::string new_string;
-	if (!this->s1.length())
-		return file;
-	while ((postion = file.find(s1,postion)) != std::string::npos)
+    while (true) 
 	{
-		new_string += file.substr(old_postion,postion - old_postion);
-		new_string.append(s2);
-		old_postion = postion;
-		file.erase(postion,s1.length());
-	}
-	new_string += file.substr(old_postion);
-	return new_string;
+		position = file.find(s1, position); 
+		if (position == std::string::npos)
+			break;
+        new_string += file.substr(0, position);
+        new_string += s2;
+        position += s1.length();
+        file = file.substr(position);
+        position = 0;
+    }
+    new_string += file;
+    return new_string;
 }
+
 
 void FilesName::check_errors()
 {
 	std::fstream infile;
+	int i;
 	infile.open((this->name_file.c_str()),std::ios::out | std::ios::in);
 	if (!this->name_file.length())
 	{
@@ -73,15 +78,20 @@ void FilesName::check_errors()
 	}
 	std::string line;
 	std::string file;
+	i = 0;
 	while (std::getline(infile, line))
 	{
 		file.append(line);
-		if(line.find(0,line.length(),'\n'))
+		if (line.find('\n') == std::string::npos)
 			file.append("\n");
+		i++;
 	}
+	if (i == 1)
+		file = ft_reaplace(file,"\n","\0");
 	std::ofstream osf((this->name_file + ".replace").c_str());
 	file = ft_reaplace(file,this->s1,this->s2);
 	osf << file;
 	osf.close();
+	infile.close();
 }
 
