@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/31 23:37:18 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/06 08:09:42 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/11 14:18:14 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ FilesName::FilesName()
 FilesName::~FilesName()
 {
 }
-void FilesName::add_info(std::string &arg, int index)
+void FilesName::add_info(std::string arg, int index)
 {
 	if (index == 1)
 	{
