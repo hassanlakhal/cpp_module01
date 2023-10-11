@@ -6,7 +6,7 @@
 /*   By: hlakhal- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/20 18:16:45 by hlakhal-          #+#    #+#             */
-/*   Updated: 2023/10/04 21:58:30 by hlakhal-         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:45:29 by hlakhal-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Zombie* zombieHorde( int N, std::string name )
 	Zombie *Obj = new Zombie[N];
 	while(i < N)
 	{
-		Obj[i] = Zombie(name);
+		Obj[i].setZombie(name);
 		i++;
 	}
 	return Obj;
